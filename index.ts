@@ -828,7 +828,7 @@ async function main() {
       process.exit(1);
     }
 
-    // console.error("Starting Linear MCP Server...");
+    console.error("Starting Linear MCP Server...");
     const linearClient = new LinearMCPClient(apiKey);
 
     const server = new Server(
@@ -1056,11 +1056,12 @@ async function main() {
               content: [{
                 type: "text",
                 text: `Found issue ${issue.identifier}:
-                ${issue.title}
+                # ${issue.title}
                 ${issue.description}
-                ${issue.priority}
-                ${issue.stateName}
-                ${issue.url}
+                
+                Priority: ${issue.priority}
+                Status: ${issue.stateName}
+                URL: ${issue.url}
                 `,
                 metadata: baseResponse
               }]
